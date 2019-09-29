@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>News Content</title>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    
+	{% load static %}
+	<link rel="icon"  href="{% static 'newsapp/images/favicon.ico' %}" type="image/x-icon">
+
+	<link rel="shortcut icon"  href="{% static 'newsapp/images/favicon.ico' %}"  type="image/x-icon" />
+
+	<link rel="stylesheet"   href="{% static 'newsapp/css/bootstrap.css' %}"  type="text/css" media="screen">
+
+	<link rel="stylesheet"  href="{% static 'newsapp/css/responsive.css' %}"   type="text/css" media="screen">
+
+	<link rel="stylesheet"   href="{% static 'newsapp/css/camera.css' %}"  type="text/css" media="screen"> 
+
+    <link rel="stylesheet" href="{% static 'newsapp/css/style.css' %}" type="text/css" media="screen">
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+  
+</head>
+
+
+<div class="bg">
+<!--==============================Header=================================-->
+<header>
+	<div class="bg_left"></div>
+    <div class="container">
+    	<div class="row">
+			
+        	<div class="span3">
+            	<div class="clearfix">
+									<div class="clearfix header-block-pad">
+											{% load staticfiles %}
+				
+										 <a href="{% url 'newsapp:index' %}"><img src="{% static 'newsapp/images/logo.jpg' %}" alt=""></a>	
+									</div>
+							</div>
+					</div>
+					
+					
+	
+					
+					<!--============================== Nav =================================-->          
+
+
+			    <div class="span9" id="nav_section">
+              <div class="navbar navbar_ clearfix">
+                <div class="navbar-inner navbar-inner_">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">MENU</a>                                                   
+                    <div class="nav-collapse nav-collapse_ collapse">
+                        <ul class="nav sf-menu">
+                          <li class="active">
+                            <a href="{% url 'newsapp:index' %}">
+                              Home Page
+                              <span>start here</span>
+                            </a>
+                          </li>
+                          <li >
+                            <a href="{% url 'newsapp:tech'%}">
+                              Technology
+                            </a>
+                      
+                          </li>
+                          <li>
+                            <a href="{% url 'newsapp:Sci'%}">
+                              Science
+                              
+                            </a>
+                          </li>
+                          <li>
+                            <a href="{% url 'newsapp:business'%}">
+                              Business
+                            
+                            </a>
+                          </li>
+                          <li>
+                            <a href="{% url 'newsapp:art'%}">
+                          Art
+                              
+                            </a>
+                          </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+            <!--============================== End Nav =================================-->
+  
+      </div>   
+    </div>
+
+</header>
+
+
+
+<!--==============================Content=================================--> 
+<section id="content" style="position: relative; top:130px;" >
+    <div class="container">
+      
+      <div class="row ">
+        <div class="clearfix ">
+            <h2 style="position: relative; left:50px;">{{ news.title }}</h2>
+            <p style="position: relative; left:50px; top:5px;">_____________________________________________________________</p>
+		 
+			<div style="position: relative; left:50px; top:5px;" >
+			<img src= "{{  news.news_image.url }}"  alt="" width="164" height="164" border="0" class="alignleft photo" />
+			
+			</div>
+
+
+			<div>
+                      <p style="position: relative; left:50px; top:5px; font-size: 13px;" class="max-size1">
+                       
+                          {{news.content_long }}
+                      </p> 
+                     
+                      <div class="padcontent"></div>
+
+					</div>
+
+       
+      </div> 
+    </div>
+  </section>
+
+
+
+
+
+  <div id="copyright" style="position: relative; top:300px;">
+        <div class="container">
+            <div class="row">	
+                <div class="span9">
+                    
+                        <p>
+                            Copyright Hope. &copy; 2019. <a href="https://google.com">ABC NEWS</a> All rights reserved.
+                        </p>
+    
+                </div>
+                <div class="span3">
+                        
+                    <!--==============================Search=========================-->
+            
+    
+                        <form id="search-form" action="{% url 'newsapp:search' %}" method="GET" accept-charset="utf-8" class="navbar-form" >
+                            <input type="text" name="search" value="" placeholder="Search" id="search1" >
+                            <a href="{% url 'newsapp:search' %}" onclick="return false" ></a>
+    
+                        
+                            
+                        </form>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div> <!-- bg -->
+
+</body>
+</html>        
